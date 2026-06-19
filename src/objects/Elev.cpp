@@ -5,22 +5,32 @@ using namespace std;
 
 // TODO: Initializeaza variabilele din clasa Elev (nume, varsta, clasa, parinte)
 Elev::Elev(string nume, int varsta, string clasaCurenta, Parinte* parinte) {
-    
+  this ->nume = nume;
+  this -> varsta = varsta;
+  this ->  clasaCurenta = clasaCurenta;
+  this -> parinte = parinte;
 }
 
 // TODO: Returneaza numele elevului
 string Elev::getNume() {
-    return "";
+    return nume;
 }
 
 // TODO: Adauga o materie noua in vectorul de materii (folosind push_back)
 void Elev::adaugaMaterie(Materie m) {
+    this -> materii.push_back(m);
     
 }
 
 // TODO: Gaseste materia dupa nume in vectorul 'materii' si adauga-i nota respectiva
 // Poti parcurge vectorul folosind un for simplu (pentru a modifica, parcurge prin referinta "Materie& m : materii")
 void Elev::adaugaNotaLaMaterie(string numeMaterie, int nota) {
+    for(Materie& m: materii){
+        if(numeMaterie == m.getNume()){
+            m.adaugaNota(nota);
+            break;
+        }
+    }
     
 }
 

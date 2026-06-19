@@ -36,7 +36,8 @@ int main() {
 
     // Servim automat fișierele din folderul "web"
     // (Așa poți accesa index.html, style.css etc)
-    auto ret = svr.set_mount_point("/", "./web");
+    // Când rulezi din src/, folderul real este în ../web.
+    auto ret = svr.set_mount_point("/", "../web");
     if (!ret) {
         cout << "ATENȚIE: Nu am găsit folderul 'web'!\n";
     }
